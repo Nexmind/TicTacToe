@@ -10,17 +10,32 @@ import XCTest
 
 class tictactoeTests: XCTestCase {
 
+    var gameViewModel: GameViewModel!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.gameViewModel = GameViewModel()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // Reset the game before each test
+        self.gameViewModel.reset()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPlayerShouldntPlayOnAlreadyPlayedBox() throws {
+        try self.gameViewModel.play(box: .bottomLeft, player: .cross)
+        XCTAssertThrowsError(try self.gameViewModel.play(box: .bottomLeft, player: .round)) 
+    }
+    
+    func testPlayerShouldntPlayTwoTimeInARow() throws {
+        
+    }
+    
+    func testPlayerIsWinning() throws {
+    
+    }
+    
+    func testGameIsTerminatedWithoutWinner() throws {
+        
     }
 
     func testPerformanceExample() throws {
