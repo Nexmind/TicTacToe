@@ -12,6 +12,14 @@ class GameViewModel {
     let rule: GameRule
     private let state: GameState
     
+    var currentPlayer: Player {
+        return state.currentPlayer
+    }
+    
+    var gameStatus: GameStatus {
+        return self.state.status
+    }
+    
     init() {
         self.state = GameState()
         self.rule = ClassicRule(gameState: self.state)
@@ -21,7 +29,7 @@ class GameViewModel {
         self.state.reset()
     }
     
-    func play(box: Box, player: Player) throws {
-        try self.rule.play(box: box, for: player)
+    func play(box: Box) throws {
+        try self.rule.play(box: box)
     }
 }

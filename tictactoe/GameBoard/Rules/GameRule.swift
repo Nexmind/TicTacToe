@@ -15,7 +15,7 @@ typealias Combinaison = [Box]
 protocol GameRule {
     var winningCombinaisons: [Combinaison] { get set }
     var players: [Player] { get }
-    var currentPlayer: Player { get set }
+    var firstPlayer: Player { get }
     var gameState: GameState { get set }
     
     init(gameState: GameState)
@@ -23,7 +23,7 @@ protocol GameRule {
     func isWinning(with combinaison: Combinaison) -> Bool
     
     func canPlay(box: Box) -> Bool
-    func play(box: Box, for player: Player) throws
+    func play(box: Box) throws
     func changePlayer()
 }
 

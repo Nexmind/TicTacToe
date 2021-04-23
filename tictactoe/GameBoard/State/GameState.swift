@@ -13,6 +13,9 @@ import Foundation
 class GameState {
     
     private var combinaisonByPlayer: [Player: Combinaison] = [:]
+    var currentPlayer: Player = .cross
+    
+    var status: GameStatus = .inProgress
     
     func reset() {
         self.combinaisonByPlayer = [:]
@@ -28,7 +31,7 @@ class GameState {
         return self.combinaisonByPlayer.flatMap { $0.value }
     }
     
-    private func getCombinaison(by player: Player) throws -> Combinaison {
+    func getCombinaison(by player: Player) throws -> Combinaison {
         if let combinaison = self.combinaisonByPlayer[player] {
             return combinaison
         }
@@ -39,6 +42,37 @@ class GameState {
         var combinaison = try self.getCombinaison(by: player)
         combinaison.append(box)
         self.combinaisonByPlayer.updateValue(combinaison, forKey: player)
+    }
+    
+    func isGameFinish() -> Bool {
+        return self.combinaisonByPlayer.flatMap { $0.value }.count == 9
+    }
+    
+    func update(current currentPlayer: Player) {
+        self.currentPlayer = currentPlayer
+    }
+    
+    func update(status: GameStatus) {
+        self.status = status
+    }
+}
+
+enum GameStatus: Equatable {
+    case inProgress
+    case draw
+    case winning(Player)
+    
+    static func ==(lhs: GameStatus, rhs: GameStatus) -> Bool {
+        switch (lhs, rhs) {
+        case (.inProgress, .inProgress):
+            return true
+        case (.draw, .draw):
+            return true
+        case (.winning(let playerLeft), .winning(let playerRight)):
+            return playerLeft == playerRight
+        default:
+            return false
+        }
     }
 }
 

@@ -22,20 +22,205 @@ class tictactoeTests: XCTestCase {
     }
 
     func testPlayerShouldntPlayOnAlreadyPlayedBox() throws {
-        try self.gameViewModel.play(box: .bottomLeft, player: .cross)
-        XCTAssertThrowsError(try self.gameViewModel.play(box: .bottomLeft, player: .round)) 
+        try self.gameViewModel.play(box: .bottomLeft)
+        XCTAssertThrowsError(try self.gameViewModel.play(box: .bottomLeft))
     }
     
     func testPlayerShouldntPlayTwoTimeInARow() throws {
+        let currentPlayer = self.gameViewModel.currentPlayer
+        try self.gameViewModel.play(box: .bottomLeft)
+        let nextPlayer = self.gameViewModel.currentPlayer
         
+        XCTAssertTrue(currentPlayer != nextPlayer)
     }
     
-    func testPlayerIsWinning() throws {
+    func testFirstPlayerIsCross() throws {
+        XCTAssertTrue(self.gameViewModel.currentPlayer == .cross)
+    }
     
+    func testPlayerCrossPlayerBottomHorizontal1() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .bottomLeft)
+        try self.gameViewModel.play(box: .topLeft)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .bottomMiddle)
+        try self.gameViewModel.play(box: .topMiddle)
+        
+        // Cross
+        try self.gameViewModel.play(box: .bottomRight)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
+    }
+    
+    func testPlayerCrossPlayerBottomHorizontal2() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .centerLeft)
+        try self.gameViewModel.play(box: .topLeft)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .center)
+        try self.gameViewModel.play(box: .topMiddle)
+        
+        // Cross
+        try self.gameViewModel.play(box: .centerRight)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
+    }
+    
+    func testPlayerCrossPlayerBottomHorizontal3() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .topLeft)
+        try self.gameViewModel.play(box: .bottomLeft)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .topMiddle)
+        try self.gameViewModel.play(box: .bottomMiddle)
+        
+        // Cross
+        try self.gameViewModel.play(box: .topRight)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
+    }
+    
+    func testPlayerCrossPlayerBottomVertical1() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .bottomLeft)
+        try self.gameViewModel.play(box: .bottomMiddle)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .centerLeft)
+        try self.gameViewModel.play(box: .center)
+        
+        // Cross
+        try self.gameViewModel.play(box: .topLeft)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
+    }
+    
+    func testPlayerCrossPlayerBottomVertical2() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .bottomRight)
+        try self.gameViewModel.play(box: .bottomMiddle)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .centerRight)
+        try self.gameViewModel.play(box: .center)
+        
+        // Cross
+        try self.gameViewModel.play(box: .topRight)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
+    }
+    
+    func testPlayerCrossPlayerBottomVertical3() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .bottomMiddle)
+        try self.gameViewModel.play(box: .bottomLeft)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .center)
+        try self.gameViewModel.play(box: .centerLeft)
+        
+        // Cross
+        try self.gameViewModel.play(box: .topMiddle)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
+    }
+    
+    func testPlayerCrossPlayerBottomDiagonal1() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .topRight)
+        try self.gameViewModel.play(box: .bottomMiddle)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .center)
+        try self.gameViewModel.play(box: .centerRight)
+        
+        // Cross
+        try self.gameViewModel.play(box: .bottomLeft)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
+    }
+    
+    func testPlayerCrossPlayerBottomDiagonal2() throws {
+        // Cross then round
+        try self.gameViewModel.play(box: .topLeft)
+        try self.gameViewModel.play(box: .bottomMiddle)
+        
+        // Cross then round
+        try self.gameViewModel.play(box: .center)
+        try self.gameViewModel.play(box: .centerRight)
+        
+        // Cross
+        try self.gameViewModel.play(box: .bottomRight)
+        
+        switch (self.gameViewModel.gameStatus) {
+        case .winning(let player):
+            XCTAssertTrue(player == .cross)
+        default:
+            break
+        }
     }
     
     func testGameIsTerminatedWithoutWinner() throws {
+        // X
+        try self.gameViewModel.play(box: .topLeft)
+        // O
+        try self.gameViewModel.play(box: .topRight)
+        // X
+        try self.gameViewModel.play(box: .topMiddle)
         
+        // O
+        try self.gameViewModel.play(box: .centerLeft)
+        // X
+        try self.gameViewModel.play(box: .centerRight)
+        // O
+        try self.gameViewModel.play(box: .center)
+        
+        // X
+        try self.gameViewModel.play(box: .bottomLeft)
+        // O
+        try self.gameViewModel.play(box: .bottomRight)
+        // X
+        try self.gameViewModel.play(box: .bottomMiddle)
+
+        XCTAssertTrue(self.gameViewModel.gameStatus == .draw)
     }
 
     func testPerformanceExample() throws {
