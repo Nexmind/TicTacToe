@@ -27,15 +27,15 @@ class tictactoeTests: XCTestCase {
     }
     
     func testPlayerShouldntPlayTwoTimeInARow() throws {
-        let currentPlayer = self.gameViewModel.currentPlayer
+        let currentPlayer = self.gameViewModel.currentPlayer.value
         try self.gameViewModel.play(box: .bottomLeft)
-        let nextPlayer = self.gameViewModel.currentPlayer
+        let nextPlayer = self.gameViewModel.currentPlayer.value
         
         XCTAssertTrue(currentPlayer != nextPlayer)
     }
     
     func testFirstPlayerIsCross() throws {
-        XCTAssertTrue(self.gameViewModel.currentPlayer == .cross)
+        XCTAssertTrue(self.gameViewModel.currentPlayer.value == .cross)
     }
     
     func testCrossPlayerWinWithHorizontal1() throws {
@@ -50,7 +50,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .bottomRight)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -70,7 +70,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .centerRight)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -90,7 +90,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .topRight)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -110,7 +110,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .topLeft)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -130,7 +130,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .topRight)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -150,7 +150,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .topMiddle)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -170,7 +170,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .bottomLeft)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -190,7 +190,7 @@ class tictactoeTests: XCTestCase {
         // Cross
         try self.gameViewModel.play(box: .bottomRight)
         
-        switch (self.gameViewModel.gameStatus) {
+        switch (self.gameViewModel.gameStatus.value) {
         case .winning(let player):
             XCTAssertTrue(player == .cross)
         default:
@@ -220,7 +220,7 @@ class tictactoeTests: XCTestCase {
         // X
         try self.gameViewModel.play(box: .bottomMiddle)
 
-        XCTAssertTrue(self.gameViewModel.gameStatus == .draw)
+        XCTAssertTrue(self.gameViewModel.gameStatus.value == .draw)
     }
 
     func testPerformanceExample() throws {

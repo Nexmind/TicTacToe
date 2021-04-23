@@ -34,7 +34,7 @@ class ClassicRule: GameRule {
     
     required init(gameState: GameState) {
         self.gameState = gameState
-        self.gameState.currentPlayer = firstPlayer
+        self.gameState.update(current: self.firstPlayer)
         self.gameState.set(players: self.players)
     }
     
@@ -44,11 +44,11 @@ class ClassicRule: GameRule {
     
     func play(box: Box) throws {
         if canPlay(box: box) {
-            try self.gameState.play(box: box, for: self.gameState.currentPlayer)
-            let newCombinaison = try self.gameState.getCombinaison(by: self.gameState.currentPlayer)
+            try self.gameState.play(box: box, for: self.gameState.currentPlayer.value)
+            let newCombinaison = try self.gameState.getCombinaison(by: self.gameState.currentPlayer.value)
             
             if self.isWinning(with: newCombinaison) {
-                self.gameState.update(status: .winning(self.gameState.currentPlayer))
+                self.gameState.update(status: .winning(self.gameState.currentPlayer.value))
             } else if self.gameState.isGameFinish() {
                 self.gameState.update(status: .draw)
             } else {
@@ -60,7 +60,7 @@ class ClassicRule: GameRule {
     }
     
     func changePlayer() {
-        let nextPlayer: Player = (self.gameState.currentPlayer == .cross) ? .round : .cross
+        let nextPlayer: Player = (self.gameState.currentPlayer.value == .cross) ? .round : .cross
         self.gameState.update(current: nextPlayer)
     }
 }

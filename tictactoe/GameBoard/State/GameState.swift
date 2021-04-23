@@ -13,12 +13,12 @@ import Foundation
 class GameState {
     
     private var combinaisonByPlayer: [Player: Combinaison] = [:]
-    var currentPlayer: Player = .cross
-    
-    var status: GameStatus = .inProgress
+    private(set) var currentPlayer: DynamicValue<Player> = DynamicValue(.cross)
+    private(set) var status: DynamicValue<GameStatus> = DynamicValue(.inProgress)
     
     func reset() {
         self.combinaisonByPlayer = [:]
+        self.status.value = .inProgress
     }
     
     func set(players: [Player]) {
@@ -49,17 +49,18 @@ class GameState {
     }
     
     func update(current currentPlayer: Player) {
-        self.currentPlayer = currentPlayer
+        self.currentPlayer.value = currentPlayer
     }
     
     func update(status: GameStatus) {
-        self.status = status
+        self.status.value = status
     }
 }
 
 enum GameStatus: Equatable {
     case inProgress
     case draw
+    case unknown
     case winning(Player)
     
     static func ==(lhs: GameStatus, rhs: GameStatus) -> Bool {
@@ -67,6 +68,8 @@ enum GameStatus: Equatable {
         case (.inProgress, .inProgress):
             return true
         case (.draw, .draw):
+            return true
+        case (.unknown, .unknown):
             return true
         case (.winning(let playerLeft), .winning(let playerRight)):
             return playerLeft == playerRight
