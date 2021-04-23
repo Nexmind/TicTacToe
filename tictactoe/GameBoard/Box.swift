@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum Box {
+enum Box: String {
     case topLeft, topMiddle, topRight, centerLeft, center, centerRight, bottomLeft, bottomMiddle, bottomRight
 }

@@ -17,7 +17,9 @@ class GameState {
     private(set) var status: DynamicValue<GameStatus> = DynamicValue(.inProgress)
     
     func reset() {
-        self.combinaisonByPlayer = [:]
+        self.combinaisonByPlayer.keys.forEach {
+            combinaisonByPlayer.updateValue([], forKey: $0)
+        }
         self.status.value = .inProgress
     }
     

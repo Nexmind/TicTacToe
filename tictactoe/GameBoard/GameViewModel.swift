@@ -37,8 +37,12 @@ class GameViewModel: NSObject {
     
     func reset() {
         self.state.reset()
+        self.state.update(current: self.rule.firstPlayer)
     }
     
+    /**
+        Play if possible. If success, the current player is automatically changed
+     */
     func play(box: Box) throws {
         try self.rule.play(box: box)
     }

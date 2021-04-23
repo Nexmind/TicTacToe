@@ -12,12 +12,30 @@ enum Player {
     case cross
     case round
     
+    func getColor() -> UIColor {
+        switch(self) {
+        case .cross:
+            return .systemOrange
+        default:
+            return .systemBlue
+        }
+    }
+    
     func getSymbol() -> UIImage {
         switch(self) {
         case .cross:
             return UIImage.cross
         default:
             return UIImage.round
+        }
+    }
+    
+    func localizedName() -> String {
+        switch(self) {
+        case .cross:
+            return "Croix"
+        case .round:
+            return "Rond"
         }
     }
 }
