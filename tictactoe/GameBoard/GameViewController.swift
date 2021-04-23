@@ -125,7 +125,7 @@ class GameViewController: UIViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "C'est reparti !", style: .default, handler: { action in
-            self.viewModel.reset()
+            self.reset()
         }))
         self.present(alert, animated: true, completion: nil)
     }
