@@ -29,6 +29,8 @@
 		471460152632EA6800FFEB92 /* ClassicRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471460132632EA6800FFEB92 /* ClassicRule.swift */; };
 		4714602B2633016300FFEB92 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4714602A2633016300FFEB92 /* GameState.swift */; };
 		4714602C2633016300FFEB92 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4714602A2633016300FFEB92 /* GameState.swift */; };
+		471460362633114C00FFEB92 /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471460352633114C00FFEB92 /* DynamicValue.swift */; };
+		471460372633114C00FFEB92 /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471460352633114C00FFEB92 /* DynamicValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 		471460082632E81000FFEB92 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		471460132632EA6800FFEB92 /* ClassicRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicRule.swift; sourceTree = "<group>"; };
 		4714602A2633016300FFEB92 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		471460352633114C00FFEB92 /* DynamicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +128,7 @@
 				47145FA62632DFED00FFEB92 /* Info.plist */,
 				47145FA32632DFED00FFEB92 /* LaunchScreen.storyboard */,
 				47145FCE2632E2BB00FFEB92 /* GameBoard */,
-				47145FF72632E6CF00FFEB92 /* Extension */,
+				471460332633111600FFEB92 /* Utils */,
 				47145FD02632E2D300FFEB92 /* Resources */,
 			);
 			path = tictactoe;
@@ -194,6 +197,23 @@
 				4714602A2633016300FFEB92 /* GameState.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		471460332633111600FFEB92 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				471460342633112000FFEB92 /* PropertyWrapper */,
+				47145FF72632E6CF00FFEB92 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		471460342633112000FFEB92 /* PropertyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				471460352633114C00FFEB92 /* DynamicValue.swift */,
+			);
+			path = PropertyWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +352,7 @@
 				471460142632EA6800FFEB92 /* ClassicRule.swift in Sources */,
 				47145F992632DFEA00FFEB92 /* AppDelegate.swift in Sources */,
 				47145F9B2632DFEA00FFEB92 /* SceneDelegate.swift in Sources */,
+				471460362633114C00FFEB92 /* DynamicValue.swift in Sources */,
 				471460092632E81000FFEB92 /* Box.swift in Sources */,
 				4714602B2633016300FFEB92 /* GameState.swift in Sources */,
 				47145FEE2632E35000FFEB92 /* Player.swift in Sources */,
@@ -351,6 +372,7 @@
 				4714602C2633016300FFEB92 /* GameState.swift in Sources */,
 				47145FE52632E32B00FFEB92 /* GameViewModel.swift in Sources */,
 				47145FB02632DFED00FFEB92 /* tictactoeTests.swift in Sources */,
+				471460372633114C00FFEB92 /* DynamicValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

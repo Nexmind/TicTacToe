@@ -38,7 +38,7 @@ class tictactoeTests: XCTestCase {
         XCTAssertTrue(self.gameViewModel.currentPlayer == .cross)
     }
     
-    func testPlayerCrossPlayerBottomHorizontal1() throws {
+    func testCrossPlayerWinWithHorizontal1() throws {
         // Cross then round
         try self.gameViewModel.play(box: .bottomLeft)
         try self.gameViewModel.play(box: .topLeft)
@@ -58,7 +58,7 @@ class tictactoeTests: XCTestCase {
         }
     }
     
-    func testPlayerCrossPlayerBottomHorizontal2() throws {
+    func testCrossPlayerWinWithHorizontal2() throws {
         // Cross then round
         try self.gameViewModel.play(box: .centerLeft)
         try self.gameViewModel.play(box: .topLeft)
@@ -78,7 +78,7 @@ class tictactoeTests: XCTestCase {
         }
     }
     
-    func testPlayerCrossPlayerBottomHorizontal3() throws {
+    func testCrossPlayerWinWithHorizontal3() throws {
         // Cross then round
         try self.gameViewModel.play(box: .topLeft)
         try self.gameViewModel.play(box: .bottomLeft)
@@ -98,7 +98,7 @@ class tictactoeTests: XCTestCase {
         }
     }
     
-    func testPlayerCrossPlayerBottomVertical1() throws {
+    func testCrossPlayerWinWithVertical1() throws {
         // Cross then round
         try self.gameViewModel.play(box: .bottomLeft)
         try self.gameViewModel.play(box: .bottomMiddle)
@@ -118,7 +118,7 @@ class tictactoeTests: XCTestCase {
         }
     }
     
-    func testPlayerCrossPlayerBottomVertical2() throws {
+    func testCrossPlayerWinWithVertical2() throws {
         // Cross then round
         try self.gameViewModel.play(box: .bottomRight)
         try self.gameViewModel.play(box: .bottomMiddle)
@@ -138,7 +138,7 @@ class tictactoeTests: XCTestCase {
         }
     }
     
-    func testPlayerCrossPlayerBottomVertical3() throws {
+    func testCrossPlayerWinWithVertical3() throws {
         // Cross then round
         try self.gameViewModel.play(box: .bottomMiddle)
         try self.gameViewModel.play(box: .bottomLeft)
@@ -158,7 +158,7 @@ class tictactoeTests: XCTestCase {
         }
     }
     
-    func testPlayerCrossPlayerBottomDiagonal1() throws {
+    func testCrossPlayerWinWithDiagonal1() throws {
         // Cross then round
         try self.gameViewModel.play(box: .topRight)
         try self.gameViewModel.play(box: .bottomMiddle)
@@ -178,7 +178,7 @@ class tictactoeTests: XCTestCase {
         }
     }
     
-    func testPlayerCrossPlayerBottomDiagonal2() throws {
+    func testCrossPlayerWinWithDiagonal2() throws {
         // Cross then round
         try self.gameViewModel.play(box: .topLeft)
         try self.gameViewModel.play(box: .bottomMiddle)
