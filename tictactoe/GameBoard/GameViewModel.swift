@@ -9,21 +9,24 @@ import Foundation
 
 class GameViewModel: NSObject {
     
-    let rule: GameRule
+    var rule: GameRule
     private let state: GameState
     
     var currentPlayer: DynamicValue<Player>
     
     var gameStatus: DynamicValue<GameStatus>
     
-    override init() {
+    private override init() {
         self.state = GameState()
         self.rule = ClassicRule(gameState: self.state)
         
         self.currentPlayer = DynamicValue(.cross)
         self.gameStatus = DynamicValue(.unknown)
-        
-        super.init()
+    }
+    
+    required convenience init(gameMode: GameMode) {
+        self.init()
+        self.rule = gameMode.getRule(using: self.state)
         
         self.state.currentPlayer.addAndNotify(observer: self) {
             self.currentPlayer.value = self.state.currentPlayer.value
@@ -32,7 +35,6 @@ class GameViewModel: NSObject {
         self.state.status.addAndNotify(observer: self) {
             self.gameStatus.value = self.state.status.value
         }
-        
     }
     
     func reset() {

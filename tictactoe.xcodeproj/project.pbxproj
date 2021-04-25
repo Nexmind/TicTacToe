@@ -40,6 +40,7 @@
 		47AB1473263572E100E86A2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47AB1475263572E100E86A2E /* Localizable.strings */; };
 		47AB147E2635744100E86A2E /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB147D2635744100E86A2E /* Translation.swift */; };
 		47AB1483263574BE00E86A2E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB1482263574BE00E86A2E /* String+Extension.swift */; };
+		47AB149726357AF200E86A2E /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB149626357AF200E86A2E /* GameMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		47AB1479263572F400E86A2E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		47AB147D2635744100E86A2E /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		47AB1482263574BE00E86A2E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		47AB149626357AF200E86A2E /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			children = (
 				47145FD92632E31F00FFEB92 /* GameRule.swift */,
 				471460132632EA6800FFEB92 /* ClassicRule.swift */,
+				47AB149626357AF200E86A2E /* GameMode.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				47145F992632DFEA00FFEB92 /* AppDelegate.swift in Sources */,
 				47145F9B2632DFEA00FFEB92 /* SceneDelegate.swift in Sources */,
 				4714604F263317E400FFEB92 /* GameImageView.swift in Sources */,
+				47AB149726357AF200E86A2E /* GameMode.swift in Sources */,
 				471460422633165B00FFEB92 /* UIView+Extension.swift in Sources */,
 				471460362633114C00FFEB92 /* DynamicValue.swift in Sources */,
 				471460092632E81000FFEB92 /* Box.swift in Sources */,

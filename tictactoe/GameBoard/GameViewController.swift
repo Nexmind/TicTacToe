@@ -91,7 +91,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewModel = GameViewModel()
+        self.viewModel = GameViewModel(gameMode: .classic)
+        
         self.view.backgroundColor = .systemGray6
         
         self.viewModel.currentPlayer.addAndNotify(observer: self) {
