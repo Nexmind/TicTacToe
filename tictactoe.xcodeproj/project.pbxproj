@@ -41,6 +41,9 @@
 		47AB147E2635744100E86A2E /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB147D2635744100E86A2E /* Translation.swift */; };
 		47AB1483263574BE00E86A2E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB1482263574BE00E86A2E /* String+Extension.swift */; };
 		47AB149726357AF200E86A2E /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB149626357AF200E86A2E /* GameMode.swift */; };
+		47AB149B2635881000E86A2E /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB149626357AF200E86A2E /* GameMode.swift */; };
+		47AB149F2635882300E86A2E /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB147D2635744100E86A2E /* Translation.swift */; };
+		47AB14A32635883500E86A2E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB1482263574BE00E86A2E /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -410,12 +413,15 @@
 				471460152632EA6800FFEB92 /* ClassicRule.swift in Sources */,
 				47146050263317E400FFEB92 /* GameImageView.swift in Sources */,
 				47145FFA2632E6E200FFEB92 /* UIImage+Extension.swift in Sources */,
+				47AB149B2635881000E86A2E /* GameMode.swift in Sources */,
 				4714600A2632E81000FFEB92 /* Box.swift in Sources */,
 				47146049263316C600FFEB92 /* ImageBoardTag.swift in Sources */,
 				4714602C2633016300FFEB92 /* GameState.swift in Sources */,
 				47145FE52632E32B00FFEB92 /* GameViewModel.swift in Sources */,
 				47145FB02632DFED00FFEB92 /* tictactoeTests.swift in Sources */,
+				47AB149F2635882300E86A2E /* Translation.swift in Sources */,
 				471460432633165B00FFEB92 /* UIView+Extension.swift in Sources */,
+				47AB14A32635883500E86A2E /* String+Extension.swift in Sources */,
 				471460372633114C00FFEB92 /* DynamicValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

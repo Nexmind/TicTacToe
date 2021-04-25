@@ -13,7 +13,7 @@ class tictactoeTests: XCTestCase {
     var gameViewModel: GameViewModel!
     
     override func setUpWithError() throws {
-        self.gameViewModel = GameViewModel()
+        self.gameViewModel = GameViewModel(gameMode: .classic)
     }
 
     override func tearDownWithError() throws {
