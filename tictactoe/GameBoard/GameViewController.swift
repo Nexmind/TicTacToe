@@ -137,7 +137,14 @@ class GameViewController: UIViewController {
     
     private func reset() {
         self.viewModel.reset()
-        self.allImages.forEach { $0.image = nil }
+        self.allImages.forEach { gameImageView in
+            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve) {
+                gameImageView.alpha = 0
+            } completion: { _ in
+                gameImageView.image = nil
+                gameImageView.alpha = 1
+            }
+        }
     }
     
     @objc func tapGameImage(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -145,8 +152,12 @@ class GameViewController: UIViewController {
             do {
                 let currentPlayer = self.viewModel.currentPlayer.value
                 try self.viewModel.play(box: tappedImage.getBox())
+                tappedImage.alpha = 0
                 tappedImage.image = currentPlayer.getSymbol()
                 tappedImage.tintColor = currentPlayer.getColor()
+                UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve) {
+                    tappedImage.alpha = 1
+                }
             } catch (let error) {
                 print(error)
             }
