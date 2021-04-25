@@ -33,9 +33,9 @@ enum Player {
     func localizedName() -> String {
         switch(self) {
         case .cross:
-            return "Croix"
+            return Translation.player.cross
         case .round:
-            return "Rond"
+            return Translation.player.round
         }
     }
 }

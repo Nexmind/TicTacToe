@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  tictactoe
+
+  Created by Persilos on 25/04/2021.
+  
+*/
+
+"general_ok" = "Ok";
+
+"gameboard_nextplayer" = "Prochain joueur";
+"gameboard_title" = "Tic Tac Toe";
+"gameboard_start_new_game" = "Recommencer";
+
+"gameboard_result_victory_title" = "Victoire !";
+"gameboard_result_victory_message" = "Le joueur %@ a gagné !";
+
+"gameboard_result_draw_title" = "Egalité";
+"gameboard_result_draw_message" = "Personne n'a gagné, retentez le coup !";
+
+"player_cross" = "croix";
+"player_round" = "rond";

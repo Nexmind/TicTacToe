@@ -11,7 +11,7 @@ class GameViewController: UIViewController {
 
     @IBOutlet weak var buttonStartNewGame: UIButton! {
         didSet {
-            buttonStartNewGame.setTitle("Recommencer partie", for: .normal)
+            buttonStartNewGame.setTitle(Translation.gameBoard.startNewGame, for: .normal)
             buttonStartNewGame.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
             buttonStartNewGame.backgroundColor = .systemRed
             buttonStartNewGame.setTitleColor(.white, for: .normal)
@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var labelNextPlayer: UILabel! {
         didSet {
-            labelNextPlayer.text = "Prochain joueur:"
+            labelNextPlayer.text = "\(Translation.gameBoard.nextPlayer):"
             labelNextPlayer.textColor = .systemGray
         }
     }
@@ -104,9 +104,9 @@ class GameViewController: UIViewController {
             
             switch(status) {
             case .draw:
-                self.showAlert(title: "Egalité", message: "Personne n'a gagné, retentez le coup !")
+                self.showAlert(title: Translation.gameBoard.drawAlert.title, message: Translation.gameBoard.drawAlert.message)
             case .winning(let player):
-                self.showAlert(title: "Victoire !", message: "Le player \(player.localizedName()) a gagné ! Félicitation ! Une petite vengeance ?")
+                self.showAlert(title: Translation.gameBoard.victoryAlert.title, message: String(format: Translation.gameBoard.victoryAlert.message, player.localizedName()))
             case .inProgress, .unknown:
                 break
             }
@@ -124,7 +124,7 @@ class GameViewController: UIViewController {
     
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "C'est reparti !", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: Translation.general.ok, style: .default, handler: { action in
             self.reset()
         }))
         self.present(alert, animated: true, completion: nil)

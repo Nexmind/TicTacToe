@@ -190,13 +190,13 @@
                             <constraint firstItem="UoI-Fk-gcc" firstAttribute="top" secondItem="5Xx-2S-DPt" secondAttribute="bottom" constant="20.666666666666657" id="SJR-VF-O4D"/>
                             <constraint firstItem="1P4-Q5-ENE" firstAttribute="leading" secondItem="vOI-9c-o2Z" secondAttribute="leading" id="Vb3-6a-1Gy"/>
                             <constraint firstItem="5Xx-2S-DPt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="WUs-IC-AMo"/>
+                            <constraint firstItem="UoI-Fk-gcc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24.666666666666671" id="Y38-EI-JAv"/>
                             <constraint firstItem="1P4-Q5-ENE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hpm-3a-Qdx"/>
                             <constraint firstItem="vOI-9c-o2Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="jgB-vQ-Ia1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Xx-2S-DPt" secondAttribute="trailing" constant="12" id="pY6-eH-uAH"/>
                             <constraint firstItem="1P4-Q5-ENE" firstAttribute="trailing" secondItem="vOI-9c-o2Z" secondAttribute="trailing" id="pgG-Uf-VYe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vOI-9c-o2Z" secondAttribute="trailing" constant="24" id="r46-6X-cGW"/>
                             <constraint firstItem="1P4-Q5-ENE" firstAttribute="top" secondItem="vOI-9c-o2Z" secondAttribute="bottom" constant="24" id="yMj-fw-KOt"/>
-                            <constraint firstItem="5Xx-2S-DPt" firstAttribute="leading" secondItem="UoI-Fk-gcc" secondAttribute="trailing" constant="-136" id="yOz-j4-573"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
